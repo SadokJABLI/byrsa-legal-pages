@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Byrsa — Legal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #0A0E17;
+      --bg2:      #111827;
+      --gold:     #C9A84C;
+      --gold-l:   #E8C96A;
+      --gold-d:   #8C6E2D;
+      --blue:     #1A6B8A;
+      --blue-g:   #3ABDD4;
+      --text:     #E8E4D8;
+      --text-m:   #8B97B5;
+      --border:   rgba(201,168,76,0.18);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Background texture ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(26,107,138,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 100%, rgba(201,168,76,0.06) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Grid lines ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page { position: relative; z-index: 1; }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      padding: 72px 24px 56px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .shield-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px; height: 88px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .shield-svg { width: 80px; height: 88px; }
+    .brand {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-shadow: 0 0 40px rgba(201,168,76,0.3);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .brand-sub {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text-m);
+      letter-spacing: 0.1em;
+    }
+    .gold-line {
+      width: 120px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 20px auto 0;
+    }
+
+    /* ── Hero nav cards ── */
+    .hero { padding: 72px 24px; max-width: 960px; margin: 0 auto; }
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      color: var(--text-m);
+      text-align: center;
+      letter-spacing: 0.12em;
+      margin-bottom: 48px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      position: relative;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 40px 32px;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+      display: block;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .card:hover { border-color: rgba(201,168,76,0.45); transform: translateY(-3px); }
+    .card:hover::before { opacity: 1; }
+    .card-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--gold-d);
+      margin-bottom: 16px;
+    }
+    .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .card-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+    .card-desc {
+      font-size: 0.95rem;
+      color: var(--text-m);
+      line-height: 1.6;
+    }
+    .card-arrow {
+      position: absolute;
+      bottom: 24px; right: 24px;
+      font-size: 1.2rem;
+      color: var(--gold);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-m);
+      font-style: italic;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .shield-wrap { animation: fadeUp 0.8s ease both; }
+    .brand       { animation: fadeUp 0.8s 0.15s ease both; }
+    .brand-sub   { animation: fadeUp 0.8s 0.25s ease both; }
+    .hero-title  { animation: fadeUp 0.8s 0.3s ease both; }
+    .card:nth-child(1) { animation: fadeUp 0.8s 0.4s ease both; }
+    .card:nth-child(2) { animation: fadeUp 0.8s 0.55s ease both; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="shield-wrap">
+      <svg class="shield-svg" viewBox="0 0 80 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 4L74 18V44C74 62 58 78 40 84C22 78 6 62 6 44V18L40 4Z"
+              fill="#111827" stroke="#C9A84C" stroke-width="1.5"/>
+        <path d="M40 12L66 23V44C66 58 54 71 40 77C26 71 14 58 14 44V23L40 12Z"
+              fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="1"/>
+        <text x="40" y="56" text-anchor="middle" font-family="Cinzel,serif"
+              font-size="30" font-weight="700" fill="#C9A84C">B</text>
+      </svg>
+    </div>
+    <span class="brand">BYRSA</span>
+    <span class="brand-sub">Your Digital Fortress</span>
+    <div class="gold-line"></div>
+  </header>
+
+  <section class="hero">
+    <p class="hero-title">Legal Documents</p>
+    <div class="cards">
+
+      <a href="privacy.html" class="card">
+        <div class="card-num">01 / 02</div>
+        <span class="card-icon">🔒</span>
+        <div class="card-title">Privacy Policy</div>
+        <div class="card-desc">
+          How Byrsa collects, uses, and protects your data.
+          Our commitment: 100% local processing, zero external servers,
+          zero data collection.
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a href="terms.html" class="card">
+        <div class="card-num">02 / 02</div>
+        <span class="card-icon">📜</span>
+        <div class="card-title">Terms of Service</div>
+        <div class="card-desc">
+          The terms governing your use of Byrsa — your rights,
+          our obligations, subscription details and fair usage policy.
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© Byrsa. All rights reserved. &nbsp;·&nbsp;
+       <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+       <a href="terms.html">Terms of Service</a>
+    </p>
+    <p style="margin-top:8px">
+      Named after the ancient Carthaginian citadel — protecting your digital life.
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

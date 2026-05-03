@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Byrsa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0A0E17; --bg2: #111827; --bg3: #0F1A2E;
+      --gold: #C9A84C; --gold-l: #E8C96A; --gold-d: #8C6E2D;
+      --blue: #1A6B8A; --blue-g: #3ABDD4;
+      --safe: #2ECC71; --warn: #F39C12; --danger: #E74C3C;
+      --text: #E8E4D8; --text-m: #8B97B5; --text-s: #4A5568;
+      --border: rgba(201,168,76,0.15);
+      --border2: rgba(255,255,255,0.06);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 20%, rgba(26,107,138,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(201,168,76,0.05) 0%, transparent 60%);
+      pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none; z-index: 0;
+    }
+    .wrap { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+
+    /* ── Top nav ── */
+    .topnav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--gold);
+      font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 0.2em;
+    }
+    .nav-shield { width: 28px; height: 31px; }
+    .nav-back {
+      font-size: 0.85rem; color: var(--text-m); text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--gold); }
+
+    /* ── Hero ── */
+    .doc-hero {
+      text-align: center;
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 56px;
+    }
+    .doc-label {
+      font-family: 'Cinzel', serif; font-size: 0.7rem;
+      letter-spacing: 0.35em; color: var(--gold-d);
+      margin-bottom: 16px;
+    }
+    .doc-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700; color: var(--gold);
+      letter-spacing: 0.05em;
+      text-shadow: 0 0 40px rgba(201,168,76,0.25);
+      margin-bottom: 16px;
+    }
+    .doc-meta { font-size: 0.9rem; color: var(--text-m); font-style: italic; }
+    .gold-bar {
+      width: 80px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 20px auto 0;
+    }
+
+    /* ── Commitment box ── */
+    .commitment {
+      background: linear-gradient(135deg, rgba(46,204,113,0.07), rgba(26,107,138,0.07));
+      border: 1px solid rgba(46,204,113,0.25);
+      border-left: 3px solid var(--safe);
+      border-radius: 4px;
+      padding: 28px 28px 28px 32px;
+      margin-bottom: 48px;
+    }
+    .commitment-title {
+      font-family: 'Cinzel', serif; font-size: 0.95rem;
+      color: var(--safe); letter-spacing: 0.1em; margin-bottom: 12px;
+    }
+    .commitment ul { list-style: none; }
+    .commitment li {
+      padding: 5px 0; font-size: 0.95rem; color: var(--text);
+    }
+    .commitment li::before { content: '✓  '; color: var(--safe); font-weight: 600; }
+
+    /* ── Sections ── */
+    .section { margin-bottom: 52px; }
+    .section-num {
+      font-family: 'Cinzel', serif; font-size: 0.65rem;
+      letter-spacing: 0.3em; color: var(--gold-d); margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem; color: var(--gold);
+      letter-spacing: 0.05em; margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section p { margin-bottom: 14px; color: var(--text); font-size: 1rem; }
+    .section p:last-child { margin-bottom: 0; }
+
+    /* ── Data table ── */
+    .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    .data-table th {
+      font-family: 'Cinzel', serif; font-size: 0.75rem;
+      letter-spacing: 0.1em; color: var(--gold-d);
+      text-align: left; padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(201,168,76,0.04);
+    }
+    .data-table td {
+      padding: 10px 14px; font-size: 0.92rem;
+      color: var(--text-m); border-bottom: 1px solid var(--border2);
+      vertical-align: top;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 2px; margin-right: 4px;
+    }
+    .tag-local { background: rgba(46,204,113,0.15); color: var(--safe); }
+    .tag-never { background: rgba(231,76,60,0.15); color: var(--danger); }
+    .tag-enc   { background: rgba(52,152,219,0.15); color: var(--blue-g); }
+
+    /* ── Highlight block ── */
+    .highlight {
+      background: rgba(201,168,76,0.05);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin: 20px 0;
+      font-size: 0.95rem; color: var(--text-m);
+    }
+    .highlight strong { color: var(--gold); }
+
+    /* ── Contact ── */
+    .contact-box {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 4px; padding: 28px 32px; text-align: center;
+      margin-top: 56px;
+    }
+    .contact-box p { color: var(--text-m); font-size: 0.95rem; margin-bottom: 8px; }
+    .contact-box a { color: var(--gold); text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 36px 0 0;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem; color: var(--text-s); font-style: italic;
+      margin-top: 56px;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .doc-hero    { animation: fadeUp 0.7s ease both; }
+    .commitment  { animation: fadeUp 0.7s 0.15s ease both; }
+    .section     { animation: fadeUp 0.7s 0.2s ease both; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-shield" viewBox="0 0 28 31" fill="none">
+        <path d="M14 1L27 6.5V15C27 22 21 27.5 14 30C7 27.5 1 22 1 15V6.5L14 1Z"
+              fill="#111827" stroke="#C9A84C" stroke-width="1.2"/>
+        <text x="14" y="21" text-anchor="middle" font-family="Cinzel,serif"
+              font-size="12" font-weight="700" fill="#C9A84C">B</text>
+      </svg>
+      BYRSA
+    </a>
+    <a href="index.html" class="nav-back">← Legal Home</a>
+  </nav>
+
+  <div class="doc-hero">
+    <div class="doc-label">Legal Document — 01 / 02</div>
+    <h1 class="doc-title">Privacy Policy</h1>
+    <p class="doc-meta">Effective date: January 1, 2025 &nbsp;·&nbsp; Last updated: January 1, 2025</p>
+    <div class="gold-bar"></div>
+  </div>
+
+  <!-- Core Commitment -->
+  <div class="commitment">
+    <div class="commitment-title">🛡️ Our Core Commitment</div>
+    <ul>
+      <li>Byrsa collects zero personal data from your device</li>
+      <li>All security processing happens 100% locally on your device</li>
+      <li>No external servers receive any information about you</li>
+      <li>No account registration required — ever</li>
+      <li>Your encryption keys never leave your device</li>
+    </ul>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <div class="section-num">Section 01</div>
+    <h2 class="section-title">Who We Are</h2>
+    <p>Byrsa ("we", "our", or "the app") is a mobile security application developed to protect Android users against cloud hacking, zero-click attacks, and authentication token theft. Byrsa is designed from the ground up to operate entirely offline, with no dependency on external servers or cloud infrastructure.</p>
+    <p>This Privacy Policy explains how Byrsa handles information when you use our application. Given the nature of our architecture — fully local, no backend — this policy is notably short: we simply do not collect your data.</p>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <div class="section-num">Section 02</div>
+    <h2 class="section-title">Information We Do Not Collect</h2>
+    <p>Byrsa does not collect, transmit, store externally, or share any of the following:</p>
+    <table class="data-table">
+      <tr><th>Data Type</th><th>Status</th></tr>
+      <tr><td>Your name, email, or identity</td><td><span class="tag tag-never">Never collected</span></td></tr>
+      <tr><td>Device identifiers (IMEI, Android ID)</td><td><span class="tag tag-never">Never collected</span></td></tr>
+      <tr><td>Location data</td><td><span class="tag tag-never">Never collected</span></td></tr>
+      <tr><td>Contacts, SMS, call logs</td><td><span class="tag tag-never">Never accessed</span></td></tr>
+      <tr><td>Security events and scan results</td><td><span class="tag tag-local">Local only</span></td></tr>
+      <tr><td>Protected app list</td><td><span class="tag tag-local">Local only</span></td></tr>
+      <tr><td>Encryption keys</td><td><span class="tag tag-enc">Keystore only</span></td></tr>
+      <tr><td>Analytics or usage data</td><td><span class="tag tag-never">Never collected</span></td></tr>
+      <tr><td>Crash reports</td><td><span class="tag tag-never">Never sent</span></td></tr>
+    </table>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <div class="section-num">Section 03</div>
+    <h2 class="section-title">How Your Data Is Stored Locally</h2>
+    <p>All data generated by Byrsa — security events, scan results, AI insights, settings, and protected app configurations — is stored exclusively in a local SQLite database on your device. This database is encrypted using AES-256 in production builds.</p>
+    <div class="highlight">
+      <strong>Android Keystore:</strong> Your encryption keys are stored in the Android Keystore system, a hardware-backed secure enclave. Keys cannot be extracted from the device, even by Byrsa itself.
+    </div>
+    <p>When you uninstall Byrsa, all locally stored data is permanently deleted. There is no remote backup of your Byrsa data because no remote storage exists.</p>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <div class="section-num">Section 04</div>
+    <h2 class="section-title">Permissions We Request and Why</h2>
+    <table class="data-table">
+      <tr><th>Permission</th><th>Purpose</th><th>Data Sent?</th></tr>
+      <tr>
+        <td>USE_BIOMETRIC / USE_FINGERPRINT</td>
+        <td>Authenticate access to Vault Sandbox and app lock</td>
+        <td><span class="tag tag-never">No</span></td>
+      </tr>
+      <tr>
+        <td>CAMERA</td>
+        <td>Optional QR code scanning for security configuration</td>
+        <td><span class="tag tag-never">No</span></td>
+      </tr>
+      <tr>
+        <td>VIBRATE</td>
+        <td>Haptic feedback on security alerts</td>
+        <td><span class="tag tag-never">No</span></td>
+      </tr>
+      <tr>
+        <td>FOREGROUND_SERVICE</td>
+        <td>Keep security monitoring active while app is in background</td>
+        <td><span class="tag tag-never">No</span></td>
+      </tr>
+      <tr>
+        <td>RECEIVE_BOOT_COMPLETED</td>
+        <td>Restart background protection after device reboot</td>
+        <td><span class="tag tag-never">No</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section">
+    <div class="section-num">Section 05</div>
+    <h2 class="section-title">In-App Purchases</h2>
+    <p>Byrsa offers optional Premium subscriptions (Monthly, Annual, Lifetime) processed entirely through Google Play's billing system. We do not handle, see, or store your payment information. All purchase validation occurs between your device and Google's servers using Google Play's native SDK.</p>
+    <p>Your purchase status is stored locally on your device. No purchase history is sent to Byrsa servers — because Byrsa has no servers.</p>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section">
+    <div class="section-num">Section 06</div>
+    <h2 class="section-title">Third-Party Services</h2>
+    <p>Byrsa does not integrate any third-party analytics, advertising, tracking, or data monetization services. We do not use:</p>
+    <div class="highlight">
+      No Firebase Analytics · No Google Analytics · No Facebook SDK · No Crashlytics · No Amplitude · No Mixpanel · No advertising SDKs of any kind.
+    </div>
+    <p>The only external service involved is <strong>Google Play Billing</strong> for in-app purchase processing, which is governed by Google's own privacy policy.</p>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="section">
+    <div class="section-num">Section 07</div>
+    <h2 class="section-title">Children's Privacy</h2>
+    <p>Byrsa does not knowingly collect any information from children under 13 years of age. As Byrsa collects no personal data from any user regardless of age, the app is inherently compliant with COPPA and similar regulations protecting children's privacy.</p>
+  </div>
+
+  <!-- Section 8 -->
+  <div class="section">
+    <div class="section-num">Section 08</div>
+    <h2 class="section-title">Your Rights</h2>
+    <p>Because Byrsa collects no personal data, most traditional privacy rights (access, rectification, deletion, portability) are automatically satisfied — there is simply no data about you held by us to access, correct, or delete.</p>
+    <p>To delete all data associated with Byrsa, simply uninstall the application from your device. All local data is permanently erased upon uninstallation.</p>
+  </div>
+
+  <!-- Section 9 -->
+  <div class="section">
+    <div class="section-num">Section 09</div>
+    <h2 class="section-title">Changes to This Policy</h2>
+    <p>We may update this Privacy Policy to reflect changes in our practices or applicable law. We will notify users of material changes through an in-app notification. The effective date at the top of this document will always reflect the most recent revision.</p>
+    <p>Continued use of Byrsa after changes are posted constitutes your acceptance of the revised policy.</p>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-box">
+    <p>Questions about this Privacy Policy?</p>
+    <p><a href="mailto:privacy@byrsa.app">privacy@byrsa.app</a></p>
+    <p style="margin-top:12px; font-size:0.85rem;">
+      We aim to respond to all privacy inquiries within 48 hours.
+    </p>
+  </div>
+
+  <footer>
+    <p>© 2025 Byrsa · <a href="index.html">Home</a> · <a href="terms.html">Terms of Service</a></p>
+    <p style="margin-top:6px;">Your fortress. Always standing.</p>
+  </footer>
+
+</div>
+</body>
+</html>

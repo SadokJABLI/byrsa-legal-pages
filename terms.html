@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Byrsa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0A0E17; --bg2: #111827; --bg3: #0F1A2E;
+      --gold: #C9A84C; --gold-l: #E8C96A; --gold-d: #8C6E2D;
+      --blue: #1A6B8A; --blue-g: #3ABDD4;
+      --safe: #2ECC71; --warn: #F39C12; --danger: #E74C3C;
+      --text: #E8E4D8; --text-m: #8B97B5; --text-s: #4A5568;
+      --border: rgba(201,168,76,0.15);
+      --border2: rgba(255,255,255,0.06);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 18px; line-height: 1.75;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 80% 10%, rgba(201,168,76,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 20% 90%, rgba(26,107,138,0.08) 0%, transparent 60%);
+      pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: ''; position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none; z-index: 0;
+    }
+    .wrap { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+
+    .topnav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--gold);
+      font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 0.2em;
+    }
+    .nav-shield { width: 28px; height: 31px; }
+    .nav-back {
+      font-size: 0.85rem; color: var(--text-m); text-decoration: none;
+      letter-spacing: 0.05em; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--gold); }
+
+    .doc-hero {
+      text-align: center; padding: 56px 0 40px;
+      border-bottom: 1px solid var(--border); margin-bottom: 56px;
+      animation: fadeUp 0.7s ease both;
+    }
+    .doc-label {
+      font-family: 'Cinzel', serif; font-size: 0.7rem;
+      letter-spacing: 0.35em; color: var(--gold-d); margin-bottom: 16px;
+    }
+    .doc-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700; color: var(--gold); letter-spacing: 0.05em;
+      text-shadow: 0 0 40px rgba(201,168,76,0.25); margin-bottom: 16px;
+    }
+    .doc-meta { font-size: 0.9rem; color: var(--text-m); font-style: italic; }
+    .gold-bar {
+      width: 80px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 20px auto 0;
+    }
+
+    /* Plans table */
+    .plans {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin: 24px 0;
+    }
+    @media (max-width: 600px) { .plans { grid-template-columns: 1fr; } }
+    .plan {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 4px; padding: 20px 16px; text-align: center;
+    }
+    .plan.featured { border-color: rgba(201,168,76,0.4); }
+    .plan-name {
+      font-family: 'Cinzel', serif; font-size: 0.8rem;
+      letter-spacing: 0.1em; color: var(--gold); margin-bottom: 8px;
+    }
+    .plan-badge {
+      font-size: 0.7rem; color: var(--text-m); font-style: italic;
+    }
+
+    .section { margin-bottom: 52px; animation: fadeUp 0.7s 0.2s ease both; }
+    .section-num {
+      font-family: 'Cinzel', serif; font-size: 0.65rem;
+      letter-spacing: 0.3em; color: var(--gold-d); margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif; font-size: 1.25rem;
+      color: var(--gold); letter-spacing: 0.05em; margin-bottom: 20px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+    .section p { margin-bottom: 14px; color: var(--text); font-size: 1rem; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { margin: 12px 0 14px 20px; }
+    .section li { margin-bottom: 6px; color: var(--text-m); font-size: 0.97rem; }
+
+    .highlight {
+      background: rgba(201,168,76,0.05);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px; padding: 20px 24px; margin: 20px 0;
+      font-size: 0.95rem; color: var(--text-m);
+    }
+    .highlight strong { color: var(--gold); }
+
+    .warn-box {
+      background: rgba(243,156,18,0.06);
+      border: 1px solid rgba(243,156,18,0.25);
+      border-left: 3px solid var(--warn);
+      border-radius: 4px; padding: 20px 24px; margin: 20px 0;
+      font-size: 0.95rem; color: var(--text-m);
+    }
+
+    .contact-box {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 4px; padding: 28px 32px; text-align: center; margin-top: 56px;
+    }
+    .contact-box p { color: var(--text-m); font-size: 0.95rem; margin-bottom: 8px; }
+    .contact-box a { color: var(--gold); text-decoration: none; }
+
+    footer {
+      text-align: center; padding: 36px 0 0;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem; color: var(--text-s); font-style: italic;
+      margin-top: 56px;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-shield" viewBox="0 0 28 31" fill="none">
+        <path d="M14 1L27 6.5V15C27 22 21 27.5 14 30C7 27.5 1 22 1 15V6.5L14 1Z"
+              fill="#111827" stroke="#C9A84C" stroke-width="1.2"/>
+        <text x="14" y="21" text-anchor="middle" font-family="Cinzel,serif"
+              font-size="12" font-weight="700" fill="#C9A84C">B</text>
+      </svg>
+      BYRSA
+    </a>
+    <a href="index.html" class="nav-back">← Legal Home</a>
+  </nav>
+
+  <div class="doc-hero">
+    <div class="doc-label">Legal Document — 02 / 02</div>
+    <h1 class="doc-title">Terms of Service</h1>
+    <p class="doc-meta">Effective date: January 1, 2025 &nbsp;·&nbsp; Last updated: January 1, 2025</p>
+    <div class="gold-bar"></div>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <div class="section-num">Section 01</div>
+    <h2 class="section-title">Acceptance of Terms</h2>
+    <p>By downloading, installing, or using the Byrsa application ("Byrsa", "the App", "we"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+    <p>These Terms constitute a legally binding agreement between you and the Byrsa development team. We reserve the right to update these Terms at any time. Continued use of the App after changes are posted constitutes your acceptance of the revised Terms.</p>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <div class="section-num">Section 02</div>
+    <h2 class="section-title">Description of Service</h2>
+    <p>Byrsa is a mobile security application for Android that provides multi-layer protection against cloud hacking, zero-click attacks, and authentication token theft. Key features include:</p>
+    <ul>
+      <li>Token Guardian — real-time session monitoring</li>
+      <li>Vault Sandbox — secure isolated environment for sensitive apps</li>
+      <li>Backup Shield — encryption of cloud backups before synchronization</li>
+      <li>RAM Sentinel — background process monitoring</li>
+      <li>Encryption Core — AES-256 local data encryption</li>
+      <li>On-device AI — behavioral analysis and security insights</li>
+    </ul>
+    <div class="highlight">
+      <strong>Important:</strong> Byrsa operates entirely on your device. All processing is local. No data is transmitted to external servers. An internet connection is only required for in-app purchases.
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <div class="section-num">Section 03</div>
+    <h2 class="section-title">Free and Premium Plans</h2>
+    <p>Byrsa offers a free tier with core features permanently available, and optional Premium subscriptions for advanced protection.</p>
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-name">Monthly</div>
+        <div class="plan-badge">Billed monthly · Cancel anytime</div>
+      </div>
+      <div class="plan featured">
+        <div class="plan-name">Annual</div>
+        <div class="plan-badge">Best value · Billed yearly</div>
+      </div>
+      <div class="plan">
+        <div class="plan-name">Lifetime</div>
+        <div class="plan-badge">One-time payment · Forever</div>
+      </div>
+    </div>
+    <p>All payments are processed by Google Play. Subscriptions automatically renew unless cancelled at least 24 hours before the renewal date. You can manage or cancel your subscription at any time through your Google Play account settings.</p>
+    <p>Lifetime purchases grant perpetual access to all Premium features available at the time of purchase, and all future feature updates included in the Premium tier.</p>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <div class="section-num">Section 04</div>
+    <h2 class="section-title">Refund Policy</h2>
+    <p>Refunds for in-app purchases are handled directly by Google Play in accordance with Google's refund policy. We do not process refunds independently.</p>
+    <p>To request a refund, visit <strong>play.google.com/store/account</strong>, find your Byrsa purchase, and select "Request a refund." Google typically processes refund requests within 3–5 business days.</p>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section">
+    <div class="section-num">Section 05</div>
+    <h2 class="section-title">Permitted Use</h2>
+    <p>You may use Byrsa solely for lawful personal security and privacy protection purposes on devices you own or control. You agree not to:</p>
+    <ul>
+      <li>Reverse engineer, decompile, or disassemble the App</li>
+      <li>Use the App to monitor or surveil any person without their consent</li>
+      <li>Attempt to circumvent, disable, or interfere with security features</li>
+      <li>Use the App for any unlawful purpose</li>
+      <li>Redistribute, resell, or sublicense the App or its features</li>
+    </ul>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section">
+    <div class="section-num">Section 06</div>
+    <h2 class="section-title">Disclaimer of Warranties</h2>
+    <div class="warn-box">
+      Byrsa is provided "as is" without warranty of any kind. While we have designed Byrsa to significantly reduce your exposure to mobile security threats, no security solution can guarantee absolute protection. We do not warrant that the App will detect or prevent every possible attack.
+    </div>
+    <p>We do not warrant that the App will be uninterrupted, error-free, or free from vulnerabilities. Security threats evolve continuously, and we commit to providing updates that address newly discovered threats as promptly as reasonably possible.</p>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="section">
+    <div class="section-num">Section 07</div>
+    <h2 class="section-title">Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, Byrsa and its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the App.</p>
+    <p>Our total liability to you for any claims arising from these Terms or your use of Byrsa shall not exceed the amount you paid for the App in the twelve months preceding the claim.</p>
+  </div>
+
+  <!-- Section 8 -->
+  <div class="section">
+    <div class="section-num">Section 08</div>
+    <h2 class="section-title">Intellectual Property</h2>
+    <p>Byrsa, its name, logo, design, code, and all associated intellectual property are owned exclusively by the Byrsa development team. The name "Byrsa" is inspired by the ancient Carthaginian citadel and is used as a trademark for this application.</p>
+    <p>Nothing in these Terms grants you any right to use Byrsa's trademarks, logos, or other proprietary information without prior written consent.</p>
+  </div>
+
+  <!-- Section 9 -->
+  <div class="section">
+    <div class="section-num">Section 09</div>
+    <h2 class="section-title">Governing Law</h2>
+    <p>These Terms shall be governed by and construed in accordance with applicable international law. Any disputes arising from these Terms shall be resolved through good-faith negotiation. If negotiation fails, disputes shall be subject to binding arbitration.</p>
+  </div>
+
+  <!-- Section 10 -->
+  <div class="section">
+    <div class="section-num">Section 10</div>
+    <h2 class="section-title">Contact</h2>
+    <p>For any questions regarding these Terms of Service, please contact us at:</p>
+    <div class="highlight">
+      <strong>Legal inquiries:</strong> <a href="mailto:legal@byrsa.app" style="color:var(--gold)">legal@byrsa.app</a><br>
+      <strong>General support:</strong> <a href="mailto:support@byrsa.app" style="color:var(--gold)">support@byrsa.app</a>
+    </div>
+  </div>
+
+  <div class="contact-box">
+    <p>Questions? We're here to help.</p>
+    <p><a href="mailto:legal@byrsa.app">legal@byrsa.app</a></p>
+    <p style="margin-top:12px; font-size:0.85rem;">Response within 48 hours.</p>
+  </div>
+
+  <footer>
+    <p>© Byrsa · <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a></p>
+    <p style="margin-top:6px;">Named after the ancient Carthaginian citadel — protecting your digital life.</p>
+  </footer>
+
+</div>
+</body>
+</html>
+
+
